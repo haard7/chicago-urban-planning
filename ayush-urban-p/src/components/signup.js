@@ -55,19 +55,32 @@ function App() {
     e.preventDefault();
     console.log('Signin Data:', signinData);
 
+    const residentCredentials = {
+      email: 'alex21@gmail.com',
+      password: '1234',
+      role: 'Resident'
+    };
+
     const adminCredentials = {
-      email: 'admin@567',
+      email: 'admin@gmail.com',
       password: '9876',
       role: 'Admin'
     };
 
     if (
-      signinData.email === adminCredentials.email &&
-      signinData.password === adminCredentials.password &&
-      signinData.role === 'Admin'
+      (signinData.email === residentCredentials.email &&
+        signinData.password === residentCredentials.password &&
+        signinData.role === residentCredentials.role) ||
+      (signinData.email === adminCredentials.email &&
+        signinData.password === adminCredentials.password &&
+        signinData.role === adminCredentials.role)
     ) {
       setLoggedInUser(signinData.email);
-      window.location.href = '/admin'; // Redirect to admin.js page
+      if (signinData.role === 'Admin') {
+        window.location.href = '/admin'; // Redirect to admin.js page
+      } else {
+        window.location.href = '/resident'; // Redirect to resident.js page
+      }
     } else {
       alert('Invalid email or password. Please try again.');
     }
