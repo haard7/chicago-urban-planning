@@ -140,15 +140,15 @@ function Resident() {
           }
         `}
       </style>
-      
+
       <div className="navbar">
         <div className="navbar-center">
           <span className="title">Resident Dashboard</span>
         </div>
-        
+
         <div className="navbar-right">
           {/* Changed to call openSignupPage when the signup button is clicked */}
-          
+
         </div>
       </div>
 
@@ -172,8 +172,12 @@ function Resident() {
           </Link>
         </div>
         <div className="inner-container">
-          <img src={amenityImage} alt="Request Amenity" />
-          <p>Request for amenities</p>
+          {/* <img src={amenityImage} alt="Request Amenity" />
+          <p>Request for amenities</p> */}
+			<Link to="/map">
+            <img src={amenityImage} alt="Request Amenity" />
+            <p>Raise a query</p>
+          </Link>
         </div>
       </div>
     </div>

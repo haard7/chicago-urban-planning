@@ -5,6 +5,9 @@ import Signup from './components/signup';
 import Resident from './components/resident'; // Import the Resident component
 import Query from './components/query'; // Import the Query component
 import Admin from './components/admin'; // Import the Admin component
+import MapComponent from './components/MapComponent'; // Import the MapComponent
+import AmenitiesPage from './components/AmenitiesPage';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState(null);
@@ -26,6 +29,11 @@ function App() {
           <Route path="/resident" element={<Resident />} />
           <Route path="/query" element={<Query />} />
           <Route path="/admin" element={<Admin />} /> {/* Added Admin route */}
+		  <Route path="/map" element={<MapComponent />} />
+		  <Route path="/amenities" element={<AmenitiesPage />} />
+
+
+
           {loggedInUser ? (
             <Route path="*" element={<Navigate to="/resident" replace />} />
           ) : (
