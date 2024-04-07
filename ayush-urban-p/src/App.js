@@ -4,6 +4,7 @@ import Home from './components/home';
 import Signup from './components/signup';
 import Resident from './components/resident'; // Import the Resident component
 import Query from './components/query'; // Import the Query component
+import Admin from './components/admin'; // Import the Admin component
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState(null);
@@ -23,11 +24,13 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/resident" element={<Resident />} />
-          <Route path="/query" element={<Query />} /> {/* Add this route for the Query component */}
-          {/* Redirect to Resident page if user is logged in */}
+          <Route path="/query" element={<Query />} />
+          <Route path="/admin" element={<Admin />} /> {/* Added Admin route */}
           {loggedInUser ? (
-            <Route path="*" element={<Navigate to="/resident" />} />
-          ) : null}
+            <Route path="*" element={<Navigate to="/resident" replace />} />
+          ) : (
+            <Route path="*" element={<Navigate to="/" replace />} />
+          )}
         </Routes>
       </div>
     </Router>

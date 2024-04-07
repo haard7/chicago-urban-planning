@@ -2,10 +2,8 @@
 
 // Import necessary dependencies
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
-import queryImage from './post.png'; // Import your query image file
-import amenityImage from './Request.png'; // Import your amenity image file
-import backgroundImage from './resident-background.jpg'; // Import your background image file
+import { Link } from 'react-router-dom';
+import backgroundImage from './admin.png'; // Import your background image file
 
 function Resident() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -27,28 +25,29 @@ function Resident() {
           body {
             font-family: Arial, sans-serif;
             margin: 0;
-            overflow-y: auto; /* Add scrollbar to the body */
-            background-image: url(${backgroundImage});
-            background-size: cover; /* Cover the entire viewport */
+            overflow-y: auto;
+            background-image: url(${backgroundImage}); /* Use the imported background image */
+            background-size: cover;
           }
 
           .navbar {
-            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+            background-color: rgba(0, 0, 0, 0.5);
             color: #fff;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 10px 20px;
           }
+
           .navbar-center {
-            flex-grow: 1; /* Allow the center div to take up available space */
-            text-align: center; /* Center align the content */
+            flex-grow: 1;
+            text-align: center;
           }
 
           .title {
             font-size: 1.5rem;
-            flex-grow: 1; /* Added flex-grow to push the title to the center */
-            text-align: center; /* Center align the title */
+            flex-grow: 1;
+            text-align: center;
           }
 
           .navbar-right {
@@ -79,7 +78,7 @@ function Resident() {
             overflow-x: hidden;
             padding-top: 60px;
             transition: 0.5s;
-            overflow-y: auto; /* Enable vertical scrolling */
+            overflow-y: auto;
           }
 
           .sidebar ul {
@@ -106,37 +105,36 @@ function Resident() {
             left: 0;
           }
 
-          /* Added styles for center containers */
           .center-container {
             display: flex;
-            justify-content: center;
+            justify-content: space-around;
             align-items: center;
-            height: 100vh; /* Make the container cover the entire viewport height */
+            height: 100vh;
           }
 
           .inner-container {
-            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+            background-color: rgba(191, 148, 228, 0.5); /* Lighter violet color with transparency */
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             margin: 20px;
             text-align: center;
-            transition: transform 0.3s ease; /* Add transition for smoother hover effect */
+            transition: transform 0.3s ease;
           }
           .inner-container:hover {
-            transform: scale(1.05); /* Scale the container slightly on hover */
+            transform: scale(1.05);
           }
 
           .inner-container img {
             max-width: 100%;
-            max-height: 300px; /* Set max height for the image */
+            max-height: 300px;
             border-radius: 8px;
             margin-bottom: 10px;
           }
 
           .inner-container p {
             font-size: 18px;
-            margin-bottom: 0; /* Remove default margin for paragraphs */
+            margin-bottom: 0;
           }
         `}
       </style>
@@ -165,15 +163,20 @@ function Resident() {
       {/* Center containers */}
       <div className="center-container">
         <div className="inner-container">
-          {/* Use Link to navigate to the query route when clicked */}
-          <Link to="/query">
-            <img src={queryImage} alt="Query" />
-            <p>Raised a query</p>
-          </Link>
+          <img src="https://www.allrecipes.com/thmb/O0rtIZnxXdHren0mlBlKFtUs594=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/102793756-community-garden-and-greenhouse-photo-by-meredith-6cfd0cbabbb14a568fb9e9bca735fef9.jpg" alt="Public Park" />
+          <p>Request for a Public Park</p>
         </div>
         <div className="inner-container">
-          <img src={amenityImage} alt="Request Amenity" />
-          <p>Request for amenities</p>
+          <img src="https://www.miracle-recreation.com/content/uploads/2018/11/Image-Header_Park.jpg.webp" alt="Playground" />
+          <p>Request for a Playground</p>
+        </div>
+        <div className="inner-container">
+          <img src="https://a.travel-assets.com/findyours-php/viewfinder/images/res70/475000/475981-Boston-Public-Garden.jpg" alt="Community Garden" />
+          <p>Request for a Community Garden</p>
+        </div>
+        <div className="inner-container">
+          <img src="https://resources.depaul.edu/campus-recreation/publishingimages/hp-membership-02.jpg" alt="Fitness Center" />
+          <p>Request for a Fitness Center</p>
         </div>
       </div>
     </div>
