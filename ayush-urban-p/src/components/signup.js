@@ -10,7 +10,8 @@ function App() {
 
   const [signinData, setSigninData] = useState({
     email: '',
-    password: ''
+    password: '',
+    role: 'Resident' // Default role
   });
 
   const [loggedInUser, setLoggedInUser] = useState(null);
@@ -55,12 +56,25 @@ function App() {
     e.preventDefault();
     console.log('Signin Data:', signinData);
 
+    // Simulate login credentials
+    const loginCredentials = {
+      email: 'alex@321',
+      password: '4321',
+      role: 'Resident'
+    };
+
     if (
-      storedSignupData &&
-      signinData.email === storedSignupData.email &&
-      signinData.password === storedSignupData.password
+      signinData.email === loginCredentials.email &&
+      signinData.password === loginCredentials.password
     ) {
       setLoggedInUser(signinData.email);
+
+      // Redirect based on role
+      if (signinData.role === 'Resident') {
+        window.location.href = '/resident'; // Redirect to resident.js page
+      } else if (signinData.role === 'Admin') {
+        window.location.href = '/admin.js'; // Redirect to admin.js page
+      }
     } else {
       alert('Invalid email or password. Please try again.');
     }
@@ -135,11 +149,17 @@ function App() {
           input[type="text"],
           input[type="email"],
           input[type="password"],
+          select,
           .btn {
-            width: calc(100% - 22px); /* Set the width of the textboxes, considering padding and border */
+            width: calc(100% - 22px); /* Set the width of the input/select, considering padding and border */
             padding: 8px; /* Adjust padding */
             border: 1px solid #ccc;
             border-radius: 5px;
+          }
+
+          select {
+            background-color: #fff; /* Set background color */
+            color: #333; /* Set text color */
           }
 
           .btn {
@@ -202,6 +222,12 @@ function App() {
                 <>
                   <h2>Sign In</h2>
                   <form onSubmit={handleSigninSubmit}>
+                    <div className="form-group">
+                      <select name="role" value={signinData.role} onChange={handleSigninChange}>
+                        <option value="Resident">Resident</option>
+                        <option value="Admin">Admin</option>
+                      </select>
+                    </div>
                     <div className="form-group">
                       <input type="email" name="email" placeholder="Email" value={signinData.email} onChange={handleSigninChange} />
                     </div>

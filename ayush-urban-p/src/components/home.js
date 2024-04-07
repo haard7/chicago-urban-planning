@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import videoBackground from './home.mp4'; // Import your video file
 
 function Home() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -20,6 +21,7 @@ function Home() {
           body {
             font-family: Arial, sans-serif;
             margin: 0;
+            overflow-y: auto; /* Add scrollbar to the body */
           }
 
           .navbar {
@@ -64,6 +66,28 @@ function Home() {
             cursor: pointer;
           }
 
+          .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+          }
+
+          video {
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+          }
+
           .sidebar {
             height: 100%;
             width: 250px;
@@ -74,6 +98,7 @@ function Home() {
             overflow-x: hidden;
             padding-top: 60px;
             transition: 0.5s;
+            overflow-y: auto; /* Enable vertical scrolling */
           }
 
           .sidebar ul {
@@ -106,6 +131,12 @@ function Home() {
         <div className="navbar-left">
           <button className="burger-btn" onClick={toggleSidebar}>☰</button>
           <span className="title">City Planning</span>
+        </div>
+        <div className="video-background">
+          <video autoPlay loop muted>
+            <source src={videoBackground} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </div>
         <div className="navbar-right">
           {/* Changed to call openSignupPage when the signup button is clicked */}
