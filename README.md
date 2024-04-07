@@ -10,6 +10,9 @@
 
 ## Live: [amenityforresidents.us](amenityforresidents.us)
 
+
+## Architecture: [architecture.amenityforresidents.us](architecture.amenityforresidents.us)
+
 ## How to Run
 
 ```
@@ -23,5 +26,6 @@ $ npm install
 ```
 $ npm start
 ```
+
 
 Note: Also do the same commands for backend and forntend both by goint to respective directories
