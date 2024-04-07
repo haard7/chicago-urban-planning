@@ -12,6 +12,7 @@ function Query() {
   const mapRef = useRef(null);
 
   useEffect(() => {
+    document.title = 'Aminity4Resident';
     if (!mapRef.current) {
       mapRef.current = L.map('map').setView([51.505, -0.09], 13); // Default center coordinates
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {

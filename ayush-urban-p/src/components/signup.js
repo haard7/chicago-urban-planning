@@ -16,7 +16,7 @@ function App() {
 
   const [loggedInUser, setLoggedInUser] = useState(null);
   const [showSignIn, setShowSignIn] = useState(false);
-
+  document.title = 'Aminity4Resident';
   const storeSignupData = (data) => {
     localStorage.setItem('signupData', JSON.stringify(data));
   };

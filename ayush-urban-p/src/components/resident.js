@@ -148,7 +148,7 @@ function Resident() {
         
         <div className="navbar-right">
           {/* Changed to call openSignupPage when the signup button is clicked */}
-          <button onClick={openSignupPage}>Sign Up</button>
+          
         </div>
       </div>
 
