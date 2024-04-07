@@ -1,0 +1,24 @@
+.amenity {
+	margin-bottom: 20px;
+	padding: 10px;
+	border: 1px solid #ccc;
+}
+
+.amenity img {
+	width: 150px;
+	height: auto;
+}
+
+.amenity h2 {
+	margin-top: 10px;
+}
+
+.amenity button {
+	margin-top: 10px;
+}
+
+.amenity textarea {
+	margin-top: 10px;
+	width: 100%;
+	height: 80px;
+}
