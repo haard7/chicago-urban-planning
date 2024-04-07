@@ -1,7 +1,7 @@
 
 # WildHacks- 2024
 
-## Project Name: A4R: Aminiy for residents
+# Project Name: A4R: Amenity for residents
 ### Track: Urban planning
 
 ### Problem Statement:
